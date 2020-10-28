@@ -1,0 +1,33 @@
+.container {
+    width: 80%;
+    margin-top: 7vw;
+}
+.home {
+    display: flex;
+    justify-content: center;
+}
+.add-window {
+    width: 80vw;
+    height: 110.25vw;
+    background: url('../../static/home/addWindowBack.png') no-repeat;
+    background-size: cover;
+    border-radius: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4vw;
+}
+.homeAddIcon {
+    width: 30vw;
+    height: 30vw;
+}
+.title-line {
+    font-weight: bold;
+}
+.homeAddIcon:hover {
+    transform: scale(1.2);
+}
+.homeAddIcon {
+    transition: all 0.5s;
+}
