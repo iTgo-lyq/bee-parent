@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { TabBar } from "antd-mobile";
 import "./index.css";
+import Icon from "../icon";
+import { withRouter } from "react-router-dom";
 
 class FootNav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: "Home",
+      selectedTab: "Welcome",
       hidden: false,
     };
   }
@@ -14,6 +16,7 @@ class FootNav extends Component {
     console.log(123);
   }
   render() {
+    const { history } = this.props;
     return (
       <div style={{ position: "fixed", height: "100%", width: "100%", top: 0 }}>
         <TabBar
@@ -25,70 +28,48 @@ class FootNav extends Component {
           prerenderingSiblingsNumber={0}
         >
           <TabBar.Item
-            icon={
-              <svg className="icon icon-home" aria-hidden="true">
-                <use xlinkHref="#icon-shouye"></use>
-              </svg>
-            }
-            selectedIcon={
-              <svg className="icon icon-home-select" aria-hidden="true">
-                <use xlinkHref="#icon-shouye-selected"></use>
-              </svg>
-            }
+            icon={<Icon icon="icon-shouye"></Icon>}
+            selectedIcon={<Icon icon="icon-shouye-selected"></Icon>}
             title="首页"
             key="Home"
-            selected={this.state.selectedTab === "Home"}
+            selected={this.state.selectedTab === "Welcome"}
             onPress={() => {
+              history.push("/");
               this.setState({
-                selectedTab: "Home",
+                selectedTab: "Welcome",
               });
             }}
           />
           <TabBar.Item
-            icon={
-              <svg className="icon icon-find" aria-hidden="true">
-                <use xlinkHref="#icon-faxian"></use>
-              </svg>
-            }
-            selectedIcon={
-              <svg className="icon icon-find-select" aria-hidden="true">
-                <use xlinkHref="#icon-faxian-selected"></use>
-              </svg>
-            }
+            icon={<Icon icon="icon-faxian"></Icon>}
+            selectedIcon={<Icon icon="icon-faxian-selected"></Icon>}
             title="发现"
             key="Find"
             selected={this.state.selectedTab === "Find"}
             onPress={() => {
+              history.push("/find");
               this.setState({
                 selectedTab: "Find",
               });
             }}
           />
           <TabBar.Item
-            icon={
-              <svg className="icon icon-mine" aria-hidden="true">
-                <use xlinkHref="#icon-wode"></use>
-              </svg>
-            }
-            selectedIcon={
-              <svg className="icon icon-mine-select" aria-hidden="true">
-                <use xlinkHref="#icon-wode-selected"></use>
-              </svg>
-            }
+            icon={<Icon icon="icon-wode"></Icon>}
+            selectedIcon={<Icon icon="icon-wode-selected"></Icon>}
             title="我的"
             key="Mine"
             selected={this.state.selectedTab === "Mine"}
             onPress={() => {
+              history.push("/mine");
               this.setState({
                 selectedTab: "Mine",
               });
             }}
           />
         </TabBar>
-        
       </div>
     );
   }
 }
 
-export default FootNav;
+export default withRouter(FootNav);

@@ -1,0 +1,35 @@
+.mine-container {
+  margin-top: calc(7vh + 7vw);
+}
+.mine-userinfo-line {
+  width: 94%;
+  height: 15vh;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+.mine-userinfo-head {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mine-userinfo-name {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  padding: auto 20px;
+}
+
+.mine-head-img {
+  margin: auto;
+  width: 80%;
+  border-radius: 50%;
+}
+.mine-name-text {
+  word-wrap: break-word;
+  word-break: normal;
+  font-size: 3vh;
+}

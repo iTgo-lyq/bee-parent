@@ -1,9 +1,9 @@
 import React from "react";
 
-const makeStyle = (size = 23) => {
+const makeStyle = (size = "23px") => {
   return {
-    width: size + "px",
-    height: size + "px",
+    width: size,
+    height: size,
   };
 };
 
@@ -12,8 +12,8 @@ const Icon = (props) => {
   const style = makeStyle(size);
 
   return (
-    <svg className='icon' style={style} aria-hidden="true">
-      <use xlinkHref={`#icon-${icon}`}></use>
+    <svg className="icon" style={style} aria-hidden="true">
+      <use xlinkHref={`#${icon}`}></use>
     </svg>
   );
 };
