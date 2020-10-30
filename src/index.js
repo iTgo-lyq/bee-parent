@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import AppRouter from './router/AppRouter';
+import 'antd-mobile/dist/antd-mobile.css';
 
 ReactDOM.render(
     <AppRouter />,

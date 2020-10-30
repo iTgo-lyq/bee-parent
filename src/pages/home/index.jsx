@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import FootNav from '../common/FootNav'
 import '../../App.css'
 import './index.css'
 
 class Home extends Component {
   render() {
     return (
+      <div>
       <div className="home">
         <div className="container">
         <div className="title-line">
@@ -19,6 +21,8 @@ class Home extends Component {
 
         </div>
         </div>
+      </div>
+<FootNav/>
       </div>
     )
   }
