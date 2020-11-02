@@ -4,6 +4,7 @@ import Layout from "../layout";
 import Welcome from "../components/welcome";
 import Find from "../components/find";
 import Mine from "../components/mine";
+import Test from "../components"
 
 function NB() {
   return <div>你个笨蛋，走错了！</div>;
@@ -18,6 +19,7 @@ class AppRouter extends Component {
             <Route exact path="/" component={Welcome} />
             <Route path="/find" component={Find} />
             <Route path="/mine" component={Mine} />
+            <Route path="/test" component={Test} />
             <Route path="*" component={NB} />
           </Switch>
         </Layout>
