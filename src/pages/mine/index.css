@@ -34,3 +34,9 @@
   word-break: normal;
   font-size: 3vh;
 }
+.login-button::before {
+  border: none !important;
+}
+.login-button {
+  background: #ffa62b!important;
+}

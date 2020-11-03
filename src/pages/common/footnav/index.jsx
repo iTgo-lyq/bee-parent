@@ -7,6 +7,10 @@ import { withRouter } from "react-router-dom";
 class FootNav extends Component {
   constructor(props) {
     super(props);
+    console.log(this.props.history)
+    // switch (this.props.history.location.pathname) {
+    //   case '/mine'
+    // }
     this.state = {
       selectedTab: "Welcome",
       hidden: false,

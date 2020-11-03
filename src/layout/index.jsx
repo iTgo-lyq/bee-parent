@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FootNav from "../components/common/footnav";
+import FootNav from "../pages/common/footnav";
 
 class Layout extends Component {
   constructor(props) {
