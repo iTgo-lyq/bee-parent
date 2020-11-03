@@ -23,8 +23,8 @@ class AppRouter extends Component {
           <Switch>
             <Route exact path="/" component={Welcome} />
             <Route path="/find" component={Find} />
-            <Route>
-              <Route exact path="/mine" component={Mine} />
+            <Route path="/mine/*">
+              <Route exact path="/mine/index" component={Mine} />
               <Route path="/mine/login" component={Login} />
             </Route>
             <Route path="/test" component={Test} />
