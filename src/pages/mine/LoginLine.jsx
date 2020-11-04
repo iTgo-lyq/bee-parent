@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Icon from "../../pages/common/icon";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import * as actions from '../../store/actionCreators'
 class LoginLine extends Component {
   constructor(props) {
     super(props);
@@ -46,4 +47,4 @@ const dispatchToProps = (dispatch) => {
   };
 };
 
-export default withRouter(connect(stateToProps, dispatchToProps)(LoginLine));
+export default withRouter(connect(actions.userStateToProps, actions.userDispatchToProps)(LoginLine));

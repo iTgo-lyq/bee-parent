@@ -64,7 +64,7 @@ class FootNav extends Component {
             key="Mine"
             selected={this.state.selectedTab === "Mine"}
             onPress={() => {
-              history.push("/mine");
+              history.push("/mine/index");
               this.setState({
                 selectedTab: "Mine",
               });
