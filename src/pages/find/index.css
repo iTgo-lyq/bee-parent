@@ -1,3 +1,10 @@
 .find-container {
   margin-top: calc(7vw + 7vh);
 }
+.recognition-img {
+  max-width: 90%;
+  max-height: 17rem;
+}
+.recognition-card {
+  margin-bottom: 0.5rem;
+}

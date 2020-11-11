@@ -7,17 +7,48 @@ import { withRouter } from "react-router-dom";
 class FootNav extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.history)
-    // switch (this.props.history.location.pathname) {
-    //   case '/mine'
-    // }
     this.state = {
-      selectedTab: "Welcome",
+      selectedTab: "Home",
       hidden: false,
     };
+    this.pathListen(this.props.location.pathname, true);
   }
-  renderContent() {
-    console.log(123);
+  pathListen(path, ifConstructor = false) {
+    if (/^\/find/.test(path)) {
+      if (this.state.selectedTab != "Find") {
+        if (ifConstructor) {
+          this.state.selectedTab = "Find";
+        } else {
+          this.setState({
+            selectedTab: "Find",
+          });
+        }
+      }
+    } else if (/^\/mine/.test(path)) {
+      if (this.state.selectedTab != "Mine") {
+        if (ifConstructor) {
+          this.state.selectedTab = "Mine";
+        } else {
+          this.setState({
+            selectedTab: "Mine",
+          });
+        }
+      }
+    } else {
+      if (this.state.selectedTab != "Home") {
+        if (ifConstructor) {
+          this.state.selectedTab = "Home";
+        } else {
+          this.setState({
+            selectedTab: "Home",
+          });
+        }
+      }
+    }
+  }
+  componentDidUpdate() {
+    const path = this.props.location.pathname;
+    this.pathListen(path);
   }
   render() {
     const { history } = this.props;
@@ -36,12 +67,9 @@ class FootNav extends Component {
             selectedIcon={<Icon icon="icon-shouye-selected"></Icon>}
             title="首页"
             key="Home"
-            selected={this.state.selectedTab === "Welcome"}
+            selected={this.state.selectedTab === "Home"}
             onPress={() => {
               history.push("/");
-              this.setState({
-                selectedTab: "Welcome",
-              });
             }}
           />
           <TabBar.Item
@@ -52,9 +80,6 @@ class FootNav extends Component {
             selected={this.state.selectedTab === "Find"}
             onPress={() => {
               history.push("/find");
-              this.setState({
-                selectedTab: "Find",
-              });
             }}
           />
           <TabBar.Item
@@ -64,10 +89,7 @@ class FootNav extends Component {
             key="Mine"
             selected={this.state.selectedTab === "Mine"}
             onPress={() => {
-              history.push("/mine/index");
-              this.setState({
-                selectedTab: "Mine",
-              });
+              history.push("/mine");
             }}
           />
         </TabBar>

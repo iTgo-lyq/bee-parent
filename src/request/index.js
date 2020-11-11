@@ -1,7 +1,9 @@
 import { BASE_URL } from "./config";
-import {Toast} from 'antd-mobile'
+import { Toast } from 'antd-mobile'
 import axios from "axios";
-
+import { createHashHistory } from 'history'
+import store from '../store'
+const history = createHashHistory()
 const service = axios.create({
   baseURL: BASE_URL
 });
@@ -11,6 +13,18 @@ const service = axios.create({
  */
 service.interceptors.request.use(
   config => {
+    console.log(config)
+    console.log(store.getState().userInfo)
+    console.log(/^\/common/.test(config.url))
+    if (!(/^\/common/.test(config.url) || /^\/parent_user/.test(config.url) || /^\/child_user/.test(config.url))) {
+      console.log('le')
+      if (store.getState().userInfo == undefined) {
+        Toast.fail('登录失效', 2, () => {
+          history.push('/mine/login');
+          history.go(0)
+        })
+      }
+    }
     config.headers["Authorization"] = localStorage.getItem("token");
     return config;
   },
@@ -30,7 +44,14 @@ service.interceptors.response.use(
 
     /** 请求成功 */
     if (status === 200) {
-        // 需要增加普遍出错情况！！
+      // 需要增加普遍出错情况！！
+      // 登录失效
+      if ([106, 107, 108].indexOf(res.status) != -1) {
+        Toast.fail('登录失效', 2, () => {
+          history.push('/mine/login');
+          history.go(0)
+        })
+      }
       return res;
     }
 
@@ -65,7 +86,7 @@ service.interceptors.response.use(
     return Promise.reject(response, "未知错误");
   },
   err => {
-    console.log("响应出错了" + err);
+    console.log("响应出错了-" + err);
     return Promise.reject(err);
   }
 );

@@ -6,7 +6,7 @@ import Icon from "../common/icon";
 
 class Welcome extends Component {
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div className="welcome">
         <div className="head-nav">

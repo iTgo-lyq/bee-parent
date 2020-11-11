@@ -5,12 +5,15 @@ class Layout extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    console.log(props);
   }
   render() {
     return (
       <div>
         {this.props.children}
+        <div style={{
+          width:'100%',
+          height:'50px'
+        }}></div>
         <FootNav />
       </div>
     );
