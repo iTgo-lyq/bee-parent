@@ -13,18 +13,18 @@ const service = axios.create({
  */
 service.interceptors.request.use(
   config => {
-    console.log(config)
-    console.log(store.getState().userInfo)
-    console.log(/^\/common/.test(config.url))
-    if (!(/^\/common/.test(config.url) || /^\/parent_user/.test(config.url) || /^\/child_user/.test(config.url))) {
-      console.log('le')
-      if (store.getState().userInfo == undefined) {
-        Toast.fail('登录失效', 2, () => {
-          history.push('/mine/login');
-          history.go(0)
-        })
-      }
-    }
+    // console.log(config)
+    // console.log(store.getState().userInfo)
+    // console.log(/^\/common/.test(config.url))
+    // if (!(/^\/common/.test(config.url) || /^\/parent_user/.test(config.url) || /^\/child_user/.test(config.url))) {
+    //   console.log('le')
+    //   if (store.getState().userInfo == undefined) {
+    //     Toast.fail('登录失效', 2, () => {
+    //       history.push('/mine/login');
+    //       history.go(0)
+    //     })
+    //   }
+    // }
     config.headers["Authorization"] = localStorage.getItem("token");
     return config;
   },
@@ -46,6 +46,7 @@ service.interceptors.response.use(
     if (status === 200) {
       // 需要增加普遍出错情况！！
       // 登录失效
+      console.log(res)
       if ([106, 107, 108].indexOf(res.status) != -1) {
         Toast.fail('登录失效', 2, () => {
           history.push('/mine/login');

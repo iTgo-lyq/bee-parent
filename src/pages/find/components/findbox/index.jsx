@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../../../../assets/font.css";
+import { Link } from 'react-router-dom'
 
 class FindBox extends Component {
   constructor(props) {
@@ -7,8 +8,9 @@ class FindBox extends Component {
     this.state = {};
   }
   render() {
-    const { content, background } = this.props;
+    const { content, background,to } = this.props;
     return (
+      <Link to={to}>
       <div style={{ textAlign: "center" }}>
         <div
           style={{
@@ -27,6 +29,7 @@ class FindBox extends Component {
           {content}
         </div>
       </div>
+      </Link>
     );
   }
 }

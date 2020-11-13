@@ -17,6 +17,7 @@ class Find extends Component {
           <FindBox
             content="识图记录"
             background="linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%)"
+            to="/find/image_recognition"
           />
           <FindBox
             content="语音交互"
